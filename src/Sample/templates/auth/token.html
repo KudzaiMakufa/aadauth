@@ -1,0 +1,52 @@
+
+{% extends '../base.html' %}
+
+
+{% block content %}
+
+    
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">{{title}}</h4>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-border table-striped custom-table datatable mb-0">
+                    <tbody>
+                        <div class="row">
+                            <div class="col-6">
+
+                                {% for claim, value in claims_to_display.items %}
+                                    <tr>
+                                        <td><b><strong>{{ claim }}:</strong></b> </td>
+                                        <td> {{ value }}</td>
+                                    </tr>
+                           
+                                {% endfor %}
+                                
+                              
+                            </div>
+                          
+                        </div>
+                    </tbody>
+
+                </table>
+            
+            <br>
+            <a class="btn btn-info p-1" href="{% url 'index' %}">My Status</a>
+                
+
+            
+        </div>
+    </div>
+
+</div>
+
+
+    
+  
+{% endblock %}

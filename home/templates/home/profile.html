@@ -1,0 +1,77 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% block header %}
+    {% comment %} <link href="{% static "admin/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" %}" rel="stylesheet"> {% endcomment %}
+{% endblock %}
+{% block content %}
+<div class="main-wrapper account-wrapper" style="margin-top: 60px">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            {% if message.tags == 'info' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <strong>{{ message.tags }}: </strong>  {{ message }}.
+                </div>
+            {% else %}
+                <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <strong>{{ message.tags }}: </strong> {{ message }}
+                </div>
+            {% endif %}
+        <!-- <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message.tags }}</li> -->
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="account-page">
+        <div class="account-center">
+            <div class="account-box">
+                <h4 class="header-title">{{request.user.get_full_name}}'s Profile</h4>
+                <br>
+                <form action="{% url 'home:profile' %}" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        {{ form.oldpass.errors }}
+                        {% comment %} <label for="example-search-input" class="col-md-2 col-form-label">Old Password</label> {% endcomment %}
+                        <div class="">
+                            {{ form.oldpass }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.newpass.errors }}
+                        {% comment %} <label for="example-search-input" class="col-md-2 col-form-label">New Password</label> {% endcomment %}
+                        <div class="">
+                            {{ form.newpass }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.confirmpass.errors }}
+                        {% comment %} <label for="example-search-input" class="col-md-2 col-form-label">Confirm New Password</label> {% endcomment %}
+                        <div class="">
+                            {{ form.confirmpass }}
+                        </div>
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <input class="btn btn-primary submit-btn" type='submit' name='submit' value='Change Password'/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% comment %} <script src="{% static "admin/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js" %}"></script>
+    <script src="{% static "admin/assets/js/pages/form-advanced.init.js" %}"></script>
+    <script src="{% static "admin/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js" %}"></script> {% endcomment %}
+{% endblock %}
+
+

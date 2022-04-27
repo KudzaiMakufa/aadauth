@@ -1,0 +1,103 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-12 col-3">
+                    <h4 class="page-title"> {{title}}</h4>
+                </div>
+                <div class="col-sm-8 col-9 text-right m-b-20">
+                   
+                    <div class="text-right">
+                        <div class="dropdown dropdown-action">
+                          
+                            <!-- <a href="#" class="btn btn-sm btn-success btn-rounded float-righ" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i>OPTIONS</a> -->
+                            <div class="dropdown-menu dropdown-menu-right">
+ 
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-border table-striped custom-table datatable mb-0">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-6">
+                                                                               
+                                        <tr>
+                                            <td><b>Display Name</b> </td>
+                                            <td>{{object.displayName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Given Name</b> </td>
+                                            <td>{{object.givenName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Surname </b> </td>
+                                            <td>{{object.surname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>User Principal Name </b> </td>
+                                            <td>{{object.userPrincipalName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>User ID</b> </td>
+                                            <td>{{object.id}}</td>
+                                        </tr>
+                                   
+                                    </div>
+                                </div>                  
+                            </tbody> 
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-border table-striped custom-table datatable mb-0">
+                            <tbody>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <tr>
+                                            <td><b>Job Title</b> </td>
+                                            <td>{{object.jobTitle}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Mail</b> </td>
+                                            <td>{{object.mail}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Mobile Phone</b> </td>
+                                            <td>{{object.mobilePhone}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Prefered Language</b> </td>
+                                            <td>{{object.preferredLanguage}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>business Phones</b> </td>
+                                            <td>{{object.caller_name}}</td>
+                                        </tr>  
+                                    </div>
+                                  
+                                </div>
+                            </tbody>
+ 
+                        </table>
+                    </div>
+                </div>
+               
+                
+            </div>
+        </div>
+ 
+      
+    </div>
+    
+{% endblock %}
